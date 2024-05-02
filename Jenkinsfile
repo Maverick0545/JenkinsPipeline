@@ -30,15 +30,14 @@ pipeline {
                     subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
                     body: "The pipeline executed successfully.",
                     attachLog: true
-                        }
-                 failure {
-                     mail to: "bhavesh53500@gmail.com",
-                     subject: "Pipeline Failure: ${currentBuild.fullDisplayName}",
+                }
+                failure {
+                    mail to: "bhavesh53500@gmail.com",
+                    subject: "Pipeline Failure: ${currentBuild.fullDisplayName}",
                     body: "The pipeline failed. Please check the logs for details.",
-                     attachLog: true
-                         
-                        }
-        }
+                    attachLog: true
+                }
+            }
         }
 
         stage('Deploy to Staging') {
@@ -51,27 +50,26 @@ pipeline {
             steps {
                 echo "Running integration tests on staging environment" // Example: Selenium
             }
-             post {
+            post {
                 success {
                     mail to: "bhavesh53500@gmail.com",
                     subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
                     body: "The pipeline executed successfully.",
                     attachLog: true
-                        }
-                 failure {
-                     mail to: "bhavesh53500@gmail.com",
-                     subject: "Pipeline Failure: ${currentBuild.fullDisplayName}",
+                }
+                failure {
+                    mail to: "bhavesh53500@gmail.com",
+                    subject: "Pipeline Failure: ${currentBuild.fullDisplayName}",
                     body: "The pipeline failed. Please check the logs for details.",
-                    attachLog: true}
+                    attachLog: true
+                }
+            }
         }
-     
-}
-
 
         stage('Deploy to Production') {
             steps {
                 echo "Deploying the application to production server (e.g., AWS EC2)" // Example: AWS CodeDeploy
             }
-        }
-    }
+        }
+    }
 }
