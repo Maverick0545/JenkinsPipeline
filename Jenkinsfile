@@ -26,13 +26,13 @@ pipeline {
             }
             post {
                 success {
-                    emailext to: "bhavesh53500@gmail.com",
+                    mail to: "bhavesh53500@gmail.com",
                     subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
                     body: "The pipeline executed successfully."
                 
                 }
                 failure {
-                    emailext to: "bhavesh53500@gmail.com",
+                    mail to: "bhavesh53500@gmail.com",
                     subject: "Pipeline Failure: ${currentBuild.fullDisplayName}",
                     body: "The pipeline failed. Please check the logs for details."
                     
@@ -52,13 +52,13 @@ pipeline {
             }
             post {
                 success {
-                    emailext to: "bhavesh53500@gmail.com",
+                    mail to: "bhavesh53500@gmail.com",
                     subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
                     body: "The pipeline executed successfully."
                     
                 }
                 failure {
-                    emailext to: "bhavesh53500@gmail.com",
+                    mail to: "bhavesh53500@gmail.com",
                     subject: "Pipeline Failure: ${currentBuild.fullDisplayName}",
                     body: "The pipeline failed. Please check the logs for details."
                     
